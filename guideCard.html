@@ -1,0 +1,151 @@
+<md-card>
+    <div layout="row" flex="60" flex-lg="50" hide-sm hide-md>
+        <div class="center">
+            <img height="100%" style="display: flex;" width="auto" src="{{ model.imageUrl }}">
+        </div>
+        <md-card-content flex hide-sm hide-md>
+            <div layout="row" class="md-margin">
+                <div layout="column" flex hide-sm hide-md>
+                    <div layout="row">
+                        <h2>
+                            <span class="md-display-1" hide-lg>{{ model.brand }} {{  model.modelName }}</span>
+                            <span class="md-title" show-lg hide-gt-lg>{{ model.brand }} {{  model.modelName }}</span>
+                        </h2>
+                    </div>
+                    <div>Last release</div>
+                    <div layout="row" class="mg-bottom-16">
+                        <div flex="80" flex-lg="70">
+                            <md-progress-linear class="md-primary good" md-mode="determinate"
+                                                value="{{ model.announceCount / model.announceAverage * 100}}"
+                                                md-buffer-value="100"></md-progress-linear>
+                        </div>
+                        <div flex class="center md-primary">{{ model.announceCount }} days</div>
+                    </div>
+                    <div>Average</div>
+                    <div layout="row" class="mg-bottom-16">
+                        <div flex="80" flex-lg="70">
+                            <md-progress-linear class="md-primary" md-mode="determinate" md-buffer-value="100"
+                                                value="{{ model.announceAverage / model.announceAverageMax * 100}}"></md-progress-linear>
+                        </div>
+                        <div flex class="md-primary center">{{ model.announceAverage }} days</div>
+                    </div>
+                    <div layout="row" layout-align="start center">
+                        <span class="center">Recent release </span>
+                        <md-switch ng-model="isShownRecentRelease" aria-label="Switch 1">{{ isShownRecentRelease ?
+                            "Show" : "Hide" }}
+                        </md-switch>
+                    </div>
+
+                    <div ng-show="isShownRecentRelease">
+                        <div ng-repeat="history in model.announceHistory" class="mg-top-16">
+                            <div class="md-caption">{{ history.date }}</div>
+                            <div layout="row">
+                                <div flex="80" flex-lg="70">
+                                    <md-progress-linear class="md-primary" md-mode="determinate" md-buffer-value="100"
+                                                        value="{{ history.countBefore / model.announceAverageMax * 100 }}"></md-progress-linear>
+                                </div>
+                                <div flex class="center md-primary">{{ history.countBefore }} days</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div layout="row" layout-align="end center">
+                <span class="md-display-1" hide-lg ng-class="{
+                'predict-level-0': model.predictLevel == 0,
+                'predict-level-1': model.predictLevel == 1,
+                'predict-level-2': model.predictLevel == 2,
+                'predict-level-3': model.predictLevel == 3 ,
+                'predict-level-99': model.predictLevel == 99}">
+                    {{ model.predictMsg }}
+                </span>
+                <span class="md-title" show-lg hide-gt-lg ng-class="{
+                'predict-level-0': model.predictLevel == 0,
+                'predict-level-1': model.predictLevel == 1,
+                'predict-level-2': model.predictLevel == 2,
+                'predict-level-3': model.predictLevel == 3 ,
+                'predict-level-99': model.predictLevel == 99}">
+                    {{ model.predictMsg }}
+                </span>
+                <!--<span class="md-display-1"-->
+                <!--ng-class="{-->
+                <!--'predict-level-0': model.brand == 'ASUS',-->
+                <!--'predict-level-1': model.brand == 'Motorola',-->
+                <!--'predict-level-2': model.brand == 'Sony',-->
+                <!--'predict-level-3': model.brand == 'LG' ,-->
+                <!--'predict-level-99': model.brand == 'Samsung'}">-->
+                <!--{{ model.predictMsg }}-->
+                </span>
+            </div>
+        </md-card-content>
+        <!--<md-card-footer>-->
+        <!--<div layout="row" layout-align="end center" style="margin-right: 16px; margin-bottom: 16px;">-->
+        <!--&lt;!&ndash;<span class="md-display-1" ng-class="{'predict-level-0': model.predictLevel == 0,'predict-level-1': model.predictLevel == 1,'predict-level-2': model.predictLevel == 2,'predict-level-3': model.predictLevel == 3 ,'predict-level-99': model.predictLevel == 99}">{{ model.predictMsg }}</span>&ndash;&gt;-->
+        <!--<span class="md-display-1" ng-class="{'predict-level-0': model.brand == 'ASUS','predict-level-1': model.brand == 'Motorola','predict-level-2': model.brand == 'Sony','predict-level-3': model.brand == 'LG' ,'predict-level-99': model.brand == 'Samsung'}">{{ model.predictMsg }}</span>-->
+        <!--</div>-->
+        <!--</md-card-footer>-->
+    </div>
+    <div layout="column" show-sm show-md hide-lg hide-gt-lg>
+        <div flex="100" class="center">
+            <img src="{{ model.imageUrl }}">
+        </div>
+        <md-card-content flex="100">
+            <div layout="column">
+
+                <div layout="row" layout-align="center center">
+                    <h2>
+                        <span class="md-display-1">{{ model.brand }} {{  model.modelName }}</span>
+                    </h2>
+                </div>
+                <div layout="row" class="md-margin mg-top-16 mg-bottom-16">
+                    <div flex="20" class="center">Last release</div>
+                    <div flex="60" class="center">
+                        <md-progress-linear class="md-primary" md-mode="determinate"
+                                            value="{{ model.announceCount / model.announceAverage * 100}}"
+                                            md-buffer-value="100"></md-progress-linear>
+                    </div>
+                    <div flex class="center md-primary">{{ model.announceCount }} days</div>
+                </div>
+                <div layout="row" class="md-margin mg-top-16 mg-bottom-16">
+                    <div flex="20" class="center">Average</div>
+                    <div flex="60" class="center">
+                        <md-progress-linear class="md-primary" md-mode="determinate" md-buffer-value="100"
+                                            value="{{ model.announceAverage / model.announceAverageMax * 100 }}"></md-progress-linear>
+                    </div>
+                    <div flex class="center md-primary">{{ model.announceAverage }} days</div>
+                </div>
+                <div layout="row" class="md-margin mg-bottom-16" layout-align="start center">
+                    <span class="center" flex="33">Recent release </span>
+                    <md-switch ng-model="isShownRecentRelease" aria-label="Switch 1">{{ isShownRecentRelease ?
+                        "Show" : "Hide" }}
+                    </md-switch>
+                </div>
+
+                <div ng-show="isShownRecentRelease">
+                    <div class="mg-top-16">
+                        <div layout="row" class="md-margin mg-top-16" ng-repeat="history in model.announceHistory">
+                            <div flex="20" flex-sm="33">{{ history.date }}</div>
+                            <div flex="60" flex-sm="33" class="center">
+                                <md-progress-linear class="md-primary" md-mode="determinate" md-buffer-value="100"
+                                                    value="{{ history.countBefore / model.announceAverageMax * 100}}"></md-progress-linear>
+                            </div>
+                            <div flex="20" flex-sm="33" class="center md-primary">{{ history.countBefore }} days
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div layout="row" layout-align="end center">
+                <h2>
+                    <span class="md-display-1"
+                          ng-class="{'predict-level-0': model.predictLevel == 0,'predict-level-1': model.predictLevel == 1,'predict-level-2': model.predictLevel == 2,'predict-level-3': model.predictLevel == 3 ,'predict-level-99': model.predictLevel == 99}">{{ model.predictMsg }}</span>
+
+                </h2>
+                <!--<md-button class="md-raised md-primary md-display-1"-->
+                <!--ng-class="{'predict-level-0': model.brand == 'ASUS','predict-level-1': model.brand == 'Motorola','predict-level-2': model.brand == 'Sony','predict-level-3': model.brand == 'LG' ,'predict-level-99': model.brand == 'Samsung'}">{{ model.predictMsg }}</md-button>-->
+            </div>
+        </md-card-content>
+    </div>
+
+</md-card>

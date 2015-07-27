@@ -1,0 +1,55 @@
+.card-divider {
+    margin: 16px;
+}
+
+.center {
+    text-align: center;
+}
+
+
+.mg-top-16{
+    margin-top: 16px;
+}
+
+
+.mg-bottom-16{
+    margin-bottom: 16px;
+}
+
+.mg-tb-16{
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.gray {
+    background-color: #E0E0E0;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.predict-level-0{
+    color: #4CAF50;
+}
+
+.predict-level-1{
+    color: #4CAF50;
+}
+
+.predict-level-2 {
+    color: #FFC107;
+}
+
+.predict-level-3 {
+    color: #F44336;
+}
+
+.predict-level-99 {
+    color: #757575;
+}
+
