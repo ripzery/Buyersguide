@@ -15,7 +15,7 @@
                     <div>Last release</div>
                     <div layout="row" class="mg-bottom-16">
                         <div flex="80" flex-lg="70">
-                            <md-progress-linear class="md-primary good" md-mode="determinate"
+                            <md-progress-linear ng-class="{'md-primary' : model.predictLevel <= 1, 'md-accent' : model.predictLevel > 1 }" md-mode="determinate"
                                                 value="{{ model.announceCount / model.announceAverage * 100}}"
                                                 md-buffer-value="100"></md-progress-linear>
                         </div>
