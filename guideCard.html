@@ -98,25 +98,26 @@
                         <span class="md-display-1">{{ model.brand }} {{  model.modelName }}</span>
                     </h2>
                 </div>
-                <div layout="row" class="md-margin mg-top-16 mg-bottom-16">
-                    <div flex="20" class="center">Last release</div>
-                    <div flex="60" class="center">
+                <div>Last release</div>
+                <div layout="row" class="md-margin mg-bottom-16">
+                    <div flex="70" class="center">
                         <md-progress-linear class="md-primary" md-mode="determinate"
                                             value="{{ model.announceCount / model.announceAverage * 100}}"
                                             md-buffer-value="100"></md-progress-linear>
                     </div>
-                    <div flex class="center md-primary">{{ model.announceCount }} days</div>
+                    <div flex class="center md-primary"> {{ model.announceCount }} days</div>
                 </div>
-                <div layout="row" class="md-margin mg-top-16 mg-bottom-16">
-                    <div flex="20" class="center">Average</div>
-                    <div flex="60" class="center">
+                <div>Average</div>
+                <div layout="row" class="md-margin mg-bottom-16">
+
+                    <div flex="70" class="center">
                         <md-progress-linear class="md-primary" md-mode="determinate" md-buffer-value="100"
                                             value="{{ model.announceAverage / model.announceAverageMax * 100 }}"></md-progress-linear>
                     </div>
-                    <div flex class="center md-primary">{{ model.announceAverage }} days</div>
+                    <div flex class="center md-primary"> {{ model.announceAverage }} days</div>
                 </div>
                 <div layout="row" class="md-margin mg-bottom-16" layout-align="start center">
-                    <span class="center" flex="33">Recent release </span>
+                    <span class="center" flex="50">Recent release </span>
                     <md-switch ng-model="isShownRecentRelease" aria-label="Switch 1">{{ isShownRecentRelease ?
                         "Show" : "Hide" }}
                     </md-switch>
