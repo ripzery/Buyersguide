@@ -53,3 +53,20 @@
     color: #757575;
 }
 
+/*.card-box{*/
+    /*display: block;*/
+    /*min-height: 400px;*/
+    /*background-color: #fff;*/
+/*}*/
+
+.block{
+    display: block;
+}
+
+md-card{
+    display: block;
+}
+
+.padding-20{
+    padding: 20px;
+}
