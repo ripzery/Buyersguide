@@ -12,10 +12,12 @@
                             <span class="md-title" show-lg hide-gt-lg>{{ model.brand }} {{  model.modelName }}</span>
                         </h2>
                     </div>
-                    <div>Last release</div>
+                    <div ng-style="{'background-color' : getColorForPercentage(model.announceCount / model.announceAverage * 100)}">
+                        Last release
+                    </div>
                     <div layout="row" class="mg-bottom-16">
                         <div flex="80" flex-lg="70">
-                            <md-progress-linear ng-class="{'md-primary' : model.predictLevel <= 1, 'md-accent' : model.predictLevel > 1 }" md-mode="determinate"
+                            <md-progress-linear md-mode="determinate"
                                                 value="{{ model.announceCount / model.announceAverage * 100}}"
                                                 md-buffer-value="100"></md-progress-linear>
                         </div>
@@ -52,7 +54,7 @@
                 </div>
             </div>
             <div layout="row" layout-align="end center">
-                <span class="md-display-1" hide-lg ng-class="{
+                <span class="md-display-1 mg-top-24" hide-lg ng-class="{
                 'predict-level-0': model.predictLevel == 0,
                 'predict-level-1': model.predictLevel == 1,
                 'predict-level-2': model.predictLevel == 2,
@@ -60,7 +62,7 @@
                 'predict-level-99': model.predictLevel == 99}">
                     {{ model.predictMsg }}
                 </span>
-                <span class="md-title" show-lg hide-gt-lg ng-class="{
+                <span class="md-title mg-top-24" show-lg hide-gt-lg ng-class="{
                 'predict-level-0': model.predictLevel == 0,
                 'predict-level-1': model.predictLevel == 1,
                 'predict-level-2': model.predictLevel == 2,
@@ -140,7 +142,7 @@
                 </div>
                 <div layout="row" layout-align="end center">
                     <h2>
-                    <span class="md-display-1"
+                    <span class="md-display-1 mg-top-16"
                           ng-class="{'predict-level-0': model.predictLevel == 0,'predict-level-1': model.predictLevel == 1,'predict-level-2': model.predictLevel == 2,'predict-level-3': model.predictLevel == 3 ,'predict-level-99': model.predictLevel == 99}">{{ model.predictMsg }}</span>
 
                     </h2>

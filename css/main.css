@@ -21,6 +21,14 @@
     margin-bottom: 16px;
 }
 
+.mg-top-24 {
+    margin-top: 24px;
+}
+
+.mg-bottom-24 {
+    margin-bottom: 24px;
+}
+
 .gray {
     background-color: #E0E0E0;
 }
@@ -67,6 +75,11 @@ md-card{
     display: block;
 }
 
+.md-container .md-bar .md-bar2 {
+    background-color: red;
+}
+
 .padding-20{
     padding: 20px;
 }
+
