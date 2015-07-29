@@ -75,7 +75,7 @@ md-card{
     display: block;
 }
 
-.md-container .md-bar .md-bar2 {
+md-bar2 {
     background-color: red;
 }
 
@@ -83,3 +83,10 @@ md-card{
     padding: 20px;
 }
 
+md-progress-linear .md-bar {
+    background-color: red;
+}
+
+md-progress-linear .md-container {
+    background-color: rgba(220, 237, 200, 0.5);
+}
