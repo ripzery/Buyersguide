@@ -17,9 +17,23 @@
                     </div>
                     <div layout="row" class="mg-bottom-16">
                         <div flex="80" flex-lg="70">
-                            <md-progress-linear md-mode="determinate"
+                            <md-progress-linear md-mode="determinate" ng-class="{
+                                'md-primary md-hue-3' : lastReleasePercent >= 0 && lastReleasePercent < 10,
+                                'md-primary md-hue-2' : lastReleasePercent >= 10 && lastReleasePercent < 20,
+                                'md-primary' : lastReleasePercent >= 20 && lastReleasePercent < 30,
+                                'md-primary md-hue-1' : lastReleasePercent >= 30 && lastReleasePercent < 40,
+                                'md-accent md-hue-2' : lastReleasePercent >= 40 && lastReleasePercent < 50,
+                                'md-accent' : lastReleasePercent >=50 && lastReleasePercent < 60,
+                                'md-warn md-hue-3' : lastReleasePercent >= 60 && lastReleasePercent < 70,
+                                'md-warn md-hue-2' : lastReleasePercent >= 70 && lastReleasePercent < 80,
+                                'md-warn' : lastReleasePercent >= 80 && lastReleasePercent < 90,
+                                'md-warn md-hue-1' : lastReleasePercent >= 90 && lastReleasePercent <= 100
+                            }"
                                                 value="{{ model.announceCount / model.announceAverage * 100}}"
                                                 md-buffer-value="100"></md-progress-linear>
+                            <!--<md-progress-linear md-mode="determinate" class="test"-->
+                                                <!--value="{{ model.announceCount / model.announceAverage * 100}}"-->
+                                                <!--md-buffer-value="100"></md-progress-linear>-->
                         </div>
                         <div flex class="center md-primary">{{ model.announceCount }} days</div>
                     </div>
@@ -54,20 +68,10 @@
                 </div>
             </div>
             <div layout="row" layout-align="end center">
-                <span class="md-display-1 mg-top-24" hide-lg ng-class="{
-                'predict-level-0': model.predictLevel == 0,
-                'predict-level-1': model.predictLevel == 1,
-                'predict-level-2': model.predictLevel == 2,
-                'predict-level-3': model.predictLevel == 3 ,
-                'predict-level-99': model.predictLevel == 99}">
+                <span class="md-display-1 mg-top-24 md-primary" hide-lg>
                     {{ model.predictMsg }}
                 </span>
-                <span class="md-title mg-top-24" show-lg hide-gt-lg ng-class="{
-                'predict-level-0': model.predictLevel == 0,
-                'predict-level-1': model.predictLevel == 1,
-                'predict-level-2': model.predictLevel == 2,
-                'predict-level-3': model.predictLevel == 3 ,
-                'predict-level-99': model.predictLevel == 99}">
+                <span class="md-title mg-top-24 md-primary" show-lg hide-gt-lg >
                     {{ model.predictMsg }}
                 </span>
                 <!--<span class="md-display-1"-->
