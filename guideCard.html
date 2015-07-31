@@ -3,7 +3,7 @@
         <div class="center">
             <img height="100%" style="display: flex;" width="auto" src="{{ model.imageUrl }}">
         </div>
-        <md-card-content flex hide-sm hide-md >
+        <md-card-content flex hide-sm hide-md>
             <div layout="row" class="md-margin">
                 <div layout="column" flex hide-sm hide-md>
                     <div layout="row">
@@ -18,22 +18,21 @@
                     <div layout="row" class="mg-bottom-16">
                         <div flex="80" flex-lg="70">
                             <md-progress-linear md-mode="determinate" ng-class="{
-                                'md-primary md-hue-3' : lastReleasePercent >= 0 && lastReleasePercent < 10,
-                                'md-primary md-hue-2' : lastReleasePercent >= 10 && lastReleasePercent < 20,
-                                'md-primary' : lastReleasePercent >= 20 && lastReleasePercent < 30,
-                                'md-primary md-hue-1' : lastReleasePercent >= 30 && lastReleasePercent < 40,
-                                'md-accent md-hue-2' : lastReleasePercent >= 40 && lastReleasePercent < 50,
-                                'md-accent' : lastReleasePercent >=50 && lastReleasePercent < 60,
-                                'md-warn md-hue-3' : lastReleasePercent >= 60 && lastReleasePercent < 70,
-                                'md-warn md-hue-2' : lastReleasePercent >= 70 && lastReleasePercent < 80,
+                                'md-primary md-hue-3' : lastReleasePercent >= 0 && lastReleasePercent < 20,
+                                'md-primary md-hue-2' : lastReleasePercent >= 20 && lastReleasePercent < 30,
+                                'md-primary' : lastReleasePercent >= 30 && lastReleasePercent < 40,
+                                'md-primary md-hue-1' : lastReleasePercent >= 40 && lastReleasePercent < 50,
+                                'md-accent md-hue-2' : lastReleasePercent >= 50 && lastReleasePercent < 60,
+                                'md-accent md-hue-3' : lastReleasePercent >= 60 && lastReleasePercent < 70,
+                                'md-warn md-hue-1' : lastReleasePercent >= 70 && lastReleasePercent < 80,
                                 'md-warn' : lastReleasePercent >= 80 && lastReleasePercent < 90,
-                                'md-warn md-hue-1' : lastReleasePercent >= 90 && lastReleasePercent <= 100
+                                'md-warn md-hue-2' : lastReleasePercent >= 90 && lastReleasePercent <= 100
                             }"
                                                 value="{{ model.announceCount / model.announceAverage * 100}}"
                                                 md-buffer-value="100"></md-progress-linear>
                             <!--<md-progress-linear md-mode="determinate" class="test"-->
-                                                <!--value="{{ model.announceCount / model.announceAverage * 100}}"-->
-                                                <!--md-buffer-value="100"></md-progress-linear>-->
+                            <!--value="{{ model.announceCount / model.announceAverage * 100}}"-->
+                            <!--md-buffer-value="100"></md-progress-linear>-->
                         </div>
                         <div flex class="center md-primary">{{ model.announceCount }} days</div>
                     </div>
@@ -68,10 +67,10 @@
                 </div>
             </div>
             <div layout="row" layout-align="end center">
-                <span class="md-display-1 mg-top-24 md-primary" hide-lg>
+                <span class="md-display-1 mg-top-24" md-style-color="{'color': textColor }" hide-lg>
                     {{ model.predictMsg }}
                 </span>
-                <span class="md-title mg-top-24 md-primary" show-lg hide-gt-lg >
+                <span class="md-title mg-top-24 md-primary" md-style-color="{'color': textColor }" show-lg hide-gt-lg>
                     {{ model.predictMsg }}
                 </span>
                 <!--<span class="md-display-1"-->
@@ -108,7 +107,17 @@
                     <div>Last release</div>
                     <div layout="row" class="md-margin mg-bottom-16">
                         <div flex="70" class="center">
-                            <md-progress-linear class="md-primary" md-mode="determinate"
+                            <md-progress-linear class="md-primary" md-mode="determinate" ng-class="{
+                                'md-primary md-hue-3' : lastReleasePercent >= 0 && lastReleasePercent < 20,
+                                'md-primary md-hue-2' : lastReleasePercent >= 20 && lastReleasePercent < 30,
+                                'md-primary' : lastReleasePercent >= 30 && lastReleasePercent < 40,
+                                'md-primary md-hue-1' : lastReleasePercent >= 40 && lastReleasePercent < 50,
+                                'md-accent md-hue-2' : lastReleasePercent >= 50 && lastReleasePercent < 60,
+                                'md-accent md-hue-3' : lastReleasePercent >= 60 && lastReleasePercent < 70,
+                                'md-warn md-hue-1' : lastReleasePercent >= 70 && lastReleasePercent < 80,
+                                'md-warn' : lastReleasePercent >= 80 && lastReleasePercent < 90,
+                                'md-warn md-hue-2' : lastReleasePercent >= 90 && lastReleasePercent <= 100
+                            }"
                                                 value="{{ model.announceCount / model.announceAverage * 100}}"
                                                 md-buffer-value="100"></md-progress-linear>
                         </div>
@@ -146,9 +155,7 @@
                 </div>
                 <div layout="row" layout-align="end center">
                     <h2>
-                    <span class="md-display-1 mg-top-16"
-                          ng-class="{'predict-level-0': model.predictLevel == 0,'predict-level-1': model.predictLevel == 1,'predict-level-2': model.predictLevel == 2,'predict-level-3': model.predictLevel == 3 ,'predict-level-99': model.predictLevel == 99}">{{ model.predictMsg }}</span>
-
+                        <span class="md-display-1 mg-top-16" md-style-color="{'color': textColor }">{{ model.predictMsg }}</span>
                     </h2>
                     <!--<md-button class="md-raised md-primary md-display-1"-->
                     <!--ng-class="{'predict-level-0': model.brand == 'ASUS','predict-level-1': model.brand == 'Motorola','predict-level-2': model.brand == 'Sony','predict-level-3': model.brand == 'LG' ,'predict-level-99': model.brand == 'Samsung'}">{{ model.predictMsg }}</md-button>-->
