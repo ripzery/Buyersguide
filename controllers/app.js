@@ -49,7 +49,7 @@ app.directive('guideCard',function(){
             $scope.lastReleasePercent = $scope.model.announceCount / $scope.model.announceAverage * 100;
             console.log($scope.lastReleasePercent);
 
-            $scope.findTextColor = function () {
+            $scope.setTextColor = function () {
                 if ($scope.lastReleasePercent >= 90) {
                     $scope.textColor = 'warn.hue-2';
                 } else if ($scope.lastReleasePercent >= 80) {
@@ -71,34 +71,7 @@ app.directive('guideCard',function(){
                 }
             };
 
-            $scope.findTextColor();
-
-            var percentColors = [
-                {pct: 0.0, color: {r: 0xf4, g: 0x43, b: 0x36}},
-                {pct: 0.5, color: {r: 0xff, g: 0xc1, b: 0x07}},
-                {pct: 1.0, color: {r: 0x4c, g: 0xaf, b: 0x50}}];
-
-
-            $scope.getColorForPercentage = function (pct) {
-                for (var i = 1; i < percentColors.length - 1; i++) {
-                    if (pct < percentColors[i].pct) {
-                        break;
-                    }
-                }
-                var lower = percentColors[i - 1];
-                var upper = percentColors[i];
-                var range = upper.pct - lower.pct;
-                var rangePct = (pct - lower.pct) / range;
-                var pctLower = 1 - rangePct;
-                var pctUpper = rangePct;
-                var color = {
-                    r: Math.floor(lower.color.r * pctLower + upper.color.r * pctUpper),
-                    g: Math.floor(lower.color.g * pctLower + upper.color.g * pctUpper),
-                    b: Math.floor(lower.color.b * pctLower + upper.color.b * pctUpper)
-                };
-                return 'rgb(' + [color.r, color.g, color.b].join(',') + ')';
-                // or output as hex if preferred
-            };
+            $scope.setTextColor();
         }
     };
 });
